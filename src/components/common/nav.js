@@ -2,17 +2,26 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Mentor from '../mentors';
+import {Link} from 'react-router-dom'
+const navStyle = {
+  "position":"sticky",
+  "top":"0px",
+  "zIndex":"1"
+}
 
 function Navbar1() {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={navStyle} >
       <Container>
         <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#features">Features</Nav.Link>
+            <Link to="/" >Home</Link>
             <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <Link to="/mentor" >Mentors</Link>
+            <Nav.Link to='/mentor'>Mentor</Nav.Link>
             <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
@@ -25,6 +34,7 @@ function Navbar1() {
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
+          
           <Nav>
             <Nav.Link href="#deets">More deets</Nav.Link>
             <Nav.Link eventKey={2} href="#memes">
